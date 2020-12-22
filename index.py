@@ -1,7 +1,7 @@
 def isValidSubsequence(array, sequence):
 	# 2arrays are the same
     if array == sequence:
-		return True
+	    return True
 
 	idx=0
 	for item in sequence:
