@@ -1,17 +1,19 @@
-def isValidSubsequence(array, sequence):
-	# 2arrays are the same
-    if array == sequence:
-	    return True
-
+def moveElementToEnd(array, toMove):
+	last_idx=len(array)-1
 	idx=0
-	for item in sequence:
-		match = False
-		for idx_array in range(idx, len(array)):
-			match = False
-			if item == array[idx_array]:
-				idx = idx_array+1
-				match = True
+	while idx <= last_idx and last_idx >=0:
+		if array[idx] == toMove:
+			#swap
+			#target to swap could be toMove
+			while array[last_idx] == toMove and idx < last_idx:
+				last_idx -= 1
+			
+			#you don't look back since No swap needed,
+			if idx >= last_idx:
 				break
-		if not match:
-			return False
-	return True
+				
+			array[idx], array[last_idx] = array[last_idx], array[idx]
+			last_idx -= 1
+		idx += 1
+			
+	return array
